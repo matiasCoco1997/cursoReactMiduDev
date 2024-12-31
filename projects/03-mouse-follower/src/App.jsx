@@ -5,11 +5,10 @@ import './App.css'
 
 function App() {
 
-  const [enable, setEnable] = useState(false);
+  const [enable, setEnable] = useState(true);
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
 
   useEffect(() => {
-
     const handleMove = (event) => {
       const {clientX, clientY} = event;
       setMousePosition({x: clientX, y: clientY});
