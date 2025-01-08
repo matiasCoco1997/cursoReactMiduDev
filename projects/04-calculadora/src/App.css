@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+}
+
+.bg-navi{
+    background-color: #2E5077;
+}
+
+.bg-gry{
+    background-color: #c2bfb9;
+}
+
+.bg-teal{
+    background-color: #4DA1A9;
+}
