@@ -1,30 +1,26 @@
+import { ClipLoader } from "react-spinners";
 import { useMovies } from "../hooks/UseMovies";
+import { ListOfMovies } from "./ListOfMovies";
+import { NoMoviesResult } from "./NoMoviesResult";
 
-function ListOfMovies({ movies }) {
-  return (
-    <ul>
-      {movies.map((movie) => (
-        <li key={movie.id}>
-          <h3>{movie.title}</h3>
-          <p>Year: {movie.year}</p>
-          <img src={movie.img} alt={movie.Title} />
-        </li>
-      ))}
-    </ul>
-  );
-}
+export function Movies({ search }) {
+  const { movies, error, loading } = useMovies({ search });
 
-function NoMoviesResult() {
-  return <h3>No results</h3>;
-}
+  if (loading) {
+    return (
+      <div className="spinner-container">
+        <ClipLoader size={50} color={"#123abc"} loading={loading} />
+      </div>
+    );
+  }
 
-export function Movies() {
-  const { movies } = useMovies();
-  const hasMovies = movies.length > 0;
+  if (error) {
+    return <p className="error">{error}</p>;
+  }
 
-  return hasMovies ? (
-    <ListOfMovies movies={movies}></ListOfMovies>
-  ) : (
-    <NoMoviesResult></NoMoviesResult>
-  );
+  if (movies) {
+    return <ListOfMovies movies={movies} />;
+  }
+
+  return <NoMoviesResult />;
 }
