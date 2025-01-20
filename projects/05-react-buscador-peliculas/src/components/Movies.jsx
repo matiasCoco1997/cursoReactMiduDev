@@ -3,8 +3,8 @@ import { useMovies } from "../hooks/UseMovies";
 import { ListOfMovies } from "./ListOfMovies";
 import { NoMoviesResult } from "./NoMoviesResult";
 
-export function Movies({ search }) {
-  const { movies, error, loading } = useMovies({ search });
+export function Movies({ search, sort }) {
+  const { movies, error, loading } = useMovies({ search, sort });
 
   if (loading) {
     return (
@@ -20,7 +20,7 @@ export function Movies({ search }) {
 
   if (movies) {
     return <ListOfMovies movies={movies} />;
+  } else {
+    return <NoMoviesResult />;
   }
-
-  return <NoMoviesResult />;
 }

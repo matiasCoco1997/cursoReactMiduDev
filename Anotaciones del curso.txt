@@ -1,0 +1,2 @@
+Minuto 1:42:15 Explicación useMemo: 
+Es para memorizar computaciones que hemos hecho que queremos evitar que se hagan a no ser que cambien las dependencias que nosotros le indicamos.
